@@ -183,6 +183,10 @@ forge build
 forge test
 ```
 
+Tests fork live chains, so set RPC endpoints first: copy `.env.example` to `.env` and fill it in (Foundry loads `.env` automatically).
+`test/Base.t.sol` and `test/PostDeploy.t.sol` fork Ethereum mainnet at pinned historical blocks, so `MAINNET_RPC_URL` must point at an **archive** node (on Chainstack, a Growth plan or higher).
+Any variable left unset falls back to forge-std's public default RPC, which is rate-limited.
+
 ---
 
 <p align="center">

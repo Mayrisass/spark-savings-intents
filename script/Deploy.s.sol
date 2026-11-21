@@ -24,6 +24,10 @@ contract DeployIntents is Script {
 
         console.log("Deploying", chainName, "SavingsVaultIntents..");
 
+        // X Layer is not in forge-std's built-in chain list, so register it here.
+        // Set XLAYER_RPC_URL (e.g. a Chainstack endpoint) to override the public RPC.
+        setChain("xlayer", ChainData("X Layer", 196, vm.envOr("XLAYER_RPC_URL", string("https://rpc.xlayer.tech"))));
+
         vm.createSelectFork(getChain(chainName).rpcUrl);
 
         vm.startBroadcast();

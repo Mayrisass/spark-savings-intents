@@ -308,7 +308,7 @@ contract PostDeployXLayerProductionTests is Test {
     SavingsVaultIntents internal savingsVaultIntents;
 
     function setUp() public {
-        vm.createSelectFork("https://rpc.xlayer.tech");
+        vm.createSelectFork(vm.envOr("XLAYER_RPC_URL", string("https://rpc.xlayer.tech")));
 
         savingsVaultIntents = SavingsVaultIntents(SAVINGS_VAULT_INTENTS);
     }
